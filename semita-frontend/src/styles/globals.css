@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  /* Updated color palette - Deep Space Blue theme */
+  --color-background: #111827; /* Deep Space Blue - main background */
+  --color-foreground: #f9fafb; /* Off-White - primary text */
+  --color-card: #1f2937; /* Slate Gray - elevated surfaces */
+  --color-card-foreground: #f9fafb; /* Off-White */
+  --color-popover: #1f2937; /* Slate Gray */
+  --color-popover-foreground: #f9fafb; /* Off-White */
+  --color-primary: #38bdf8; /* Guiding Blue - main interactive color */
+  --color-primary-foreground: #111827; /* Deep Space Blue for contrast */
+  --color-secondary: #1f2937; /* Slate Gray */
+  --color-secondary-foreground: #f9fafb; /* Off-White */
+  --color-muted: #1f2937; /* Slate Gray */
+  --color-muted-foreground: #9ca3af; /* Muted Gray - secondary text */
+  --color-accent: #2dd4bf; /* Action Teal - call to action */
+  --color-accent-foreground: #111827; /* Deep Space Blue for contrast */
+  --color-destructive: #ff416c; /* Keep existing destructive color */
+  --color-destructive-foreground: #ffffff;
+  --color-border: #374151; /* Darker gray for borders */
+  --color-input: #1f2937; /* Slate Gray */
+  --color-ring: #38bdf8; /* Guiding Blue for focus rings */
+  --radius: 0.75rem;
+  --color-chart-1: #38bdf8; /* Guiding Blue */
+  --color-chart-2: #2dd4bf; /* Action Teal */
+  --color-chart-3: #fbbf24; /* Keep existing warning color */
+  --color-chart-4: #ff416c; /* Destructive color */
+  --color-chart-5: #a78bfa; /* Keep existing purple */
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* Use theme variables for base styles */
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RECOMMENDATION: Remove custom responsive utilities.
+  TailwindCSS already provides this. For example, instead of using the class "xs:block", 
+  you would apply the class "hidden xs:block" directly in your HTML.
+  This keeps your CSS cleaner.
+*/
+
+/* Background utilities */
+.bg-dark-mode {
+  /* Use a theme variable for the background color */
+  background-color: var(--color-background);
+  /* NOTE: This Figma asset URL will not work in production. Replace with a real path. */
+  background-image: url("path/to/your/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Gradient & Glassmorphism utilities, updated for Deep Space Blue theme */
+.gradient-card {
+  background: linear-gradient(
+    145deg,
+    hsla(220, 25%, 18%, 0.8) 0%, /* Deep Space Blue derivative */
+    hsla(215, 25%, 21%, 0.9) 100% /* Slate Gray derivative */
+  );
+  border: 1px solid hsla(216, 19%, 27%, 0.3); /* Muted border */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+}
+
+.gradient-card-solid {
+  background: hsla(215, 25%, 21%, 0.8); /* Slate Gray with opacity */
+  border: 1px solid hsla(216, 19%, 27%, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+}
+
+.gradient-primary {
+  background: linear-gradient(
+    135deg,
+    #38bdf8 0%, /* Guiding Blue */
+    #0ea5e9 100% /* Slightly darker blue */
+  );
+  border-radius: var(--radius);
+}
+
+.gradient-secondary {
+  background: linear-gradient(
+    135deg,
+    hsla(215, 25%, 21%, 0.8) 0%, /* Slate Gray with opacity */
+    hsla(220, 25%, 18%, 0.6) 100% /* Deep Space Blue with opacity */
+  );
+  border-radius: var(--radius);
+}
+
+.gradient-accent {
+  background: linear-gradient(
+    135deg,
+    #2dd4bf 0%, /* Action Teal */
+    #14b8a6 100% /* Slightly darker teal */
+  );
+  border-radius: var(--radius);
+}
+
+.gradient-destructive {
+  background: linear-gradient(
+    135deg,
+    var(--color-destructive) 0%,
+    #ff4b2b 100%
+  );
+  border-radius: var(--radius);
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: linear-gradient(
+    145deg,
+    hsla(220, 25%, 18%, 0.8) 0%, /* Deep Space Blue derivative */
+    hsla(215, 25%, 21%, 0.9) 100% /* Slate Gray derivative */
+  );
+  border: 1px solid hsla(216, 19%, 27%, 0.2);
+  border-radius: var(--radius);
+}
+
+/* Text utilities */
+.text-dark-title {
+  color: var(--color-foreground); /* Off-White for primary text */
+  font-weight: 600;
+}
+
+/* Border utilities for the new theme */
+.border-card-border {
+  border-color: hsla(216, 19%, 27%, 0.4); /* Subtle border using theme colors */
+}
+
+/* Typography defaults (no changes needed) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+h4 {
+  font-size: 1rem;
+}
+p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Focus and interaction states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  /* Use the ring color variable for focus states */
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
